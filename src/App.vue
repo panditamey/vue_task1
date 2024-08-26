@@ -2,18 +2,22 @@
   <h1>From app</h1>
   <MyCounter />
   <MyCounter2 />
+  <MyCounter3 />
   <DisplayDate />
 </template>
 
 <script>
 import MyCounter from './components/MyCounter.vue';
 import MyCounter2 from './components/MyCounter2.vue';
+import MyCounter3 from './components/MyCounter3.vue';
 import DisplayDate from './components/DisplayDate.vue';
 export default {
   name: 'App',
   components: {
     MyCounter,
-    MyCounter2 ,// Updated to match the new component name
+    MyCounter2 ,
+    MyCounter3,
+    // Updated to match the new component name
     DisplayDate
   }
 }
