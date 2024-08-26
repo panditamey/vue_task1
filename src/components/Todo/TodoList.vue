@@ -10,6 +10,7 @@ const setToStorage = (items) => {
 
 const getFromStorage = () => {
   const stored = localStorage.getItem("list-items");
+  return stored ? JSON.parse(stored) : [];
 };
 
 const initListItems = () => {
@@ -32,16 +33,40 @@ const sortedList = computed(() => {
   );
 });
 
+const toggleItemChecked = (item) => {
+  item.checked = !item.checked;
+};
+
 const updateItem = (item) => {
-  const index = storageItems.value.findIndex((i) => i.title === item.title);
-  storageItems.value[index].checked = item.checked;
-  setToStorage(storageItems.value);
+  const updatedItem = findItemInList(item);
+  if (updatedItem) {
+    toggleItemChecked(updatedItem);
+    setToStorage(storageItems.value);
+  }
 };
-const findItemInList = (title) => {
-  return storageItems.value.find((i) => i.title === title);
+
+const findItemInList = (item) => {
+  return storageItems.value.find((i) => i.title === item.title);
 };
+
+onMounted(() => {
+  storageItems.value = getFromStorage();
+  initListItems();
+});
 </script>
 
-<template></template>
+<template>
+  <div>
+    <ul>
+      <li v-for="(item, index) in sortedList" :key="index">
+        <ListItem
+          :isChecked="item.checked"
+          @click.prevent="() => updateItem(item)"
+        />
+        {{ item.title }}
+      </li>
+    </ul>
+  </div>
+</template>
 
 <style scoped></style>

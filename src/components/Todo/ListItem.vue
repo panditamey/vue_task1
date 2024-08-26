@@ -8,10 +8,10 @@ const props = defineProps({
 
 <template>
     <div>
-        <label>Checkbox</label>
+        <!-- <label>Checkbox</label> -->
         <input type="checkbox" :checked="props.isChecked">
         <slot>
-            <p>Default content</p>
+            <!-- <p>Default content</p> -->
         </slot>
     </div>
 </template>
