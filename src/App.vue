@@ -1,15 +1,18 @@
 <template>
   <h1>From app</h1>
   <MyCounter />
+  <MyCounter2 />
 </template>
 
 <script>
 import MyCounter from './components/MyCounter.vue';
+import MyCounter2 from './components/MyCounter2.vue';
 
 export default {
   name: 'App',
   components: {
-    MyCounter // Updated to match the new component name
+    MyCounter,
+    MyCounter2 // Updated to match the new component name
   }
 }
 </script>
