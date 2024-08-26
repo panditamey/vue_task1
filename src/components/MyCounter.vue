@@ -7,15 +7,26 @@
 </template>
   
 <script setup>
-  import { ref } from 'vue';
-  let time;
+  import { ref, onMounted, onUnmounted,computed } from 'vue';
+  let timer;
   const count = ref(0);
   const increment = () => {
     count.value++;
   }
   const start = () => {
-    time = setInterval(increment, 1000);
+    timer = setInterval(increment, 1000);
   }
+
+  const stop = () => {
+    clearInterval(timer);
+  }
+
+  onMounted(() => {
+    start();
+  });
+  onUnmounted(() => {
+    stop();
+  });
 
 /*
 import { onBeforeMount, onBeforeUnmount, onBeforeUpdate, onMounted, onUnmounted, onUpdated } from 'vue';
