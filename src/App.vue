@@ -1,5 +1,6 @@
 <template>
-  <h1>From app</h1>
+  <h1>From app</h1>  
+  <InputBox />
   <MyCounter />
   <MyCounter2 />
   <MyCounter3 />
@@ -11,6 +12,7 @@ import MyCounter from './components/MyCounter.vue';
 import MyCounter2 from './components/MyCounter2.vue';
 import MyCounter3 from './components/MyCounter3.vue';
 import DisplayDate from './components/DisplayDate.vue';
+import InputBox from './components/InputBox.vue';
 export default {
   name: 'App',
   components: {
@@ -18,7 +20,8 @@ export default {
     MyCounter2 ,
     MyCounter3,
     // Updated to match the new component name
-    DisplayDate
+    DisplayDate,
+    InputBox
   }
 }
 </script>
